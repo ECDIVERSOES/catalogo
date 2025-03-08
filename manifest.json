@@ -1,6 +1,6 @@
 {
-    "name": "Catálogo de Karaokê",
-    "short_name": "Karaokê",
+    "name": "Catálogo EC Karaokê Hits",
+    "short_name": "EC Karaokê",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#1e1e2f",

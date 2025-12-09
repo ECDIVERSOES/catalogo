@@ -21,20 +21,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* CRÍTICO: Preenche a altura total e distribui o conteúdo */
-            justify-content: space-between; 
+            /* IMPORTANTE: Removido justify-content: space-between para evitar ocultar o botão */
+            /* O conteúdo fluirá de cima para baixo */
             min-height: 100vh; 
         }
         
-        /* Container principal para centralizar o grosso do conteúdo */
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            padding-bottom: 5px; /* Evita que o conteúdo principal toque o botão Voltar */
-        }
-
+        /* Container principal removido, pois o body já faz o layout principal */
+        
         /* H1 - Fonte Aumentada */
         h1 {
             margin: 10px 0 10px; 
@@ -46,7 +39,7 @@
         p {
             margin: 5px 0; /* Margem aumentada */
             line-height: 1.3;
-            font-size: 16px; /* Fonte aumentada (Opção 1 original) */
+            font-size: 16px; 
             color: #444;
             padding: 0 10px;
         }
@@ -69,11 +62,11 @@
         }
 
 
-        /* FOCO NA IMAGEM (Altíssimo grau de compactação, mas ligeiramente maior) */
+        /* FOCO NA IMAGEM (Ajuste de altura para deixar espaço) */
         .imagem-produto {
             margin: 10px auto; 
             max-width: 90%; 
-            max-height: 35vh; /* Aumentado ligeiramente (35% da altura da tela) */
+            max-height: 30vh; /* Ajustado para 30% da altura da tela */
             width: auto;
             height: auto;
             border-radius: 8px;
@@ -88,13 +81,13 @@
             display: flex;
             flex-direction: row; 
             justify-content: center; 
-            gap: 20px; /* Espaçamento entre os círculos aumentado */
-            margin: 15px 0; /* Margem aumentada */
+            gap: 20px; 
+            margin: 15px 0 5px; /* Margem após os ícones reduzida */
             width: 100%; 
         }
         
         .botao-circle {
-            width: 55px; /* Tamanho fixo do círculo aumentado */
+            width: 55px; 
             height: 55px;
             border-radius: 50%; 
             display: flex;
@@ -110,7 +103,7 @@
         }
         
         .botao-circle i {
-            font-size: 24px; /* Tamanho do ícone aumentado */
+            font-size: 24px; 
             margin: 0; 
         }
 
@@ -120,18 +113,18 @@
         .circle-facebook { background-color: #1877F2; }
 
         /* ------------------------------------------- */
-        /* BOTÃO VOLTAR (NO RODAPÉ) */
+        /* BOTÃO VOLTAR (POSICIONADO APÓS TUDO) */
         /* ------------------------------------------- */
         .botao-voltar {
-            /* Fica no final do body (bottom part of space-between) */
-            margin-top: 10px; /* Garante que haja um espaço acima */
+            /* IMPORTANTE: margin-top: auto força o elemento para o final do container flexível */
+            margin-top: auto; 
             margin-bottom: 10px;
             display: inline-block;
             padding: 8px 15px;
             background-color: #007bff;
             color: white;
             text-decoration: none;
-            font-size: 14px; /* Fonte de volta ao tamanho normal */
+            font-size: 14px; 
             border-radius: 5px;
             text-align: center;
         }
@@ -147,42 +140,39 @@
 </head>
 <body>
     
-    <div class="main-content">
+    <h1>EC DIVERSÕES</h1>
+    
+    <p class="chamada-principal">
+        **Pronto para a festa?** Alugue seu equipamento agora!
+    </p>
 
-       
-        
-        <p class="chamada-principal">
-            **Pronto para a festa?** Alugue seu equipamento agora!
-        </p>
+    <img src="imagens/vendas.jpg" alt="Aluguel de Equipamentos e Manutenção de Máquinas de Karaokê" class="imagem-produto">
 
-        <img src="imagens/vendas.jpg" alt="Aluguel de Equipamentos e Manutenção de Máquinas de Karaokê" class="imagem-produto">
+    <p class="chamada-servico">
+        <i class="fas fa-tools" style="margin-right: 5px;"></i> **SERVIÇOS ESPECIALIZADOS:** Máquina de Karaokê precisa de um upgrade? Realizamos **manutenção e atualização** para que a música nunca pare.
+    </p>
+    
+    <p class="chamada-contato">
+        📞 **ORÇAMENTO RÁPIDO via WhatsApp!** Clique no ícone abaixo e fale conosco.
+    </p>
+    
+    <div class="botoes-container">
+        <a href="https://wa.me/5522996112625?text=Ol&aacute;! Tenho interesse em alugar seus produtos. Aguardo seu retorno. Obrigado(a)!" class="botao-circle circle-whatsapp" title="Orçamento Rápido via WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
 
-        <p class="chamada-servico">
-            <i class="fas fa-tools" style="margin-right: 5px;"></i> **SERVIÇOS ESPECIALIZADOS:** Máquina de Karaokê precisa de um upgrade? Realizamos **manutenção e atualização** para que a música nunca pare.
-        </p>
-        
-        <p class="chamada-contato">
-            📞 **ORÇAMENTO RÁPIDO via WhatsApp!** Clique no ícone abaixo e fale conosco.
-        </p>
-        
-        <div class="botoes-container">
-            <a href="https://wa.me/5522996112625?text=Ol&aacute;! Tenho interesse em alugar seus produtos. Aguardo seu retorno. Obrigado(a)!" class="botao-circle circle-whatsapp" title="Orçamento Rápido via WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-            </a>
+        <a href="https://www.instagram.com/eclocacoes?igsh=anR3ZmxtMjk1c296/" class="botao-circle circle-instagram" title="Siga-nos no Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
 
-            <a href="https://www.instagram.com/eclocacoes?igsh=anR3ZmxtMjk1c296/" class="botao-circle circle-instagram" title="Siga-nos no Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-
-            <a href="https://www.facebook.com/AerDivercoes/" class="botao-circle circle-facebook" title="Curta nossa página no Facebook">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-        </div>
-        
-        <p class="chamada-contato" style="margin-top: 0;">
-            Siga-nos no **Instagram** e curta nossa página no **Facebook** para ver novidades e promoções!
-        </p>
+        <a href="https://www.facebook.com/AerDivercoes/" class="botao-circle circle-facebook" title="Curta nossa página no Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
     </div>
+    
+    <p class="chamada-contato" style="margin-top: 0; margin-bottom: 5px;">
+        Siga-nos no **Instagram** e curta nossa página no **Facebook** para ver novidades e promoções!
+    </p>
 
     <a href="index.html" class="botao-voltar">
         <i class="fas fa-arrow-left"></i> Voltar para Página Principal

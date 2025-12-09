@@ -6,7 +6,7 @@
     <title>EC Diversões - Aluguel e Serviços</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Reset e Base Compacta */
+        /* Reset */
         * {
             margin: 0;
             padding: 0;
@@ -17,53 +17,63 @@
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f4f4f4;
-            padding: 10px; /* Padding reduzido */
+            padding: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Alinhar ao topo para caber na tela */
+            /* CRÍTICO: Preenche a altura total e distribui o conteúdo */
+            justify-content: space-between; 
             min-height: 100vh; 
         }
         
-        /* H1 RETORNADO */
+        /* Container principal para centralizar o grosso do conteúdo */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding-bottom: 5px; /* Evita que o conteúdo principal toque o botão Voltar */
+        }
+
+        /* H1 - Fonte Aumentada */
         h1 {
-            margin: 5px 0 5px; /* Margem ajustada */
+            margin: 10px 0 10px; 
             color: #333;
-            font-size: 20px; 
+            font-size: 24px; 
         }
         
-        /* Estilos de Texto Compacto (para caber as frases longas) */
+        /* Estilos de Texto - Fonte Aumentada */
         p {
-            margin: 3px 0; /* Margem mínima entre os parágrafos */
-            line-height: 1.2;
-            font-size: 14px; /* Fonte reduzida para caber o texto longo */
+            margin: 5px 0; /* Margem aumentada */
+            line-height: 1.3;
+            font-size: 16px; /* Fonte aumentada (Opção 1 original) */
             color: #444;
-            padding: 0 5px;
+            padding: 0 10px;
         }
 
         .chamada-principal {
-            color: #d9534f; /* Destaque aluguel */
+            color: #d9534f; 
             font-weight: bold;
         }
 
         .chamada-servico {
-            color: #5cb85c; /* Destaque serviço */
+            color: #5cb85c; 
             font-weight: bold;
-            margin-top: 8px; /* Espaçamento após a imagem */
+            margin-top: 10px; 
         }
         
         .chamada-contato {
              font-weight: 600;
-             margin-top: 5px;
+             margin-top: 8px;
              margin-bottom: 5px;
         }
 
 
-        /* FOCO NA IMAGEM (Altíssimo grau de compactação) */
+        /* FOCO NA IMAGEM (Altíssimo grau de compactação, mas ligeiramente maior) */
         .imagem-produto {
-            margin: 8px auto; 
+            margin: 10px auto; 
             max-width: 90%; 
-            max-height: 25vh; /* CRÍTICO: Limita a imagem para cerca de 1/4 da tela */
+            max-height: 35vh; /* Aumentado ligeiramente (35% da altura da tela) */
             width: auto;
             height: auto;
             border-radius: 8px;
@@ -72,42 +82,21 @@
         }
 
         /* ------------------------------------------- */
-        /* BOTÃO VOLTAR (NO TOPO) */
-        /* ------------------------------------------- */
-        .botao-voltar {
-            /* Adaptado para ficar acima do H1, no fluxo normal, mas compacto */
-            position: static; 
-            margin: 0 auto 5px; 
-            display: inline-block;
-            padding: 5px 10px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            font-size: 11px; /* Fonte mínima */
-            border-radius: 5px;
-            text-align: center;
-        }
-        .botao-voltar i {
-            margin-right: 5px;
-            font-size: 11px;
-        }
-        
-        /* ------------------------------------------- */
         /* ÍCONES CIRCULARES (SOCIAL/WHATSAPP) */
         /* ------------------------------------------- */
         .botoes-container {
             display: flex;
             flex-direction: row; 
-            justify-content: center; /* Centralizar horizontalmente */
-            gap: 15px; /* Espaçamento entre os círculos */
-            margin: 10px 0; /* Margem mínima */
+            justify-content: center; 
+            gap: 20px; /* Espaçamento entre os círculos aumentado */
+            margin: 15px 0; /* Margem aumentada */
             width: 100%; 
         }
         
         .botao-circle {
-            width: 50px; /* Tamanho fixo do círculo */
-            height: 50px;
-            border-radius: 50%; /* Faz o círculo */
+            width: 55px; /* Tamanho fixo do círculo aumentado */
+            height: 55px;
+            border-radius: 50%; 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -121,8 +110,8 @@
         }
         
         .botao-circle i {
-            font-size: 22px; /* Tamanho do ícone */
-            margin: 0; /* Remover margem extra do ícone */
+            font-size: 24px; /* Tamanho do ícone aumentado */
+            margin: 0; 
         }
 
         /* Cores (mantidas) */
@@ -130,47 +119,74 @@
         .circle-instagram { background-color: #E4405F; }
         .circle-facebook { background-color: #1877F2; }
 
+        /* ------------------------------------------- */
+        /* BOTÃO VOLTAR (NO RODAPÉ) */
+        /* ------------------------------------------- */
+        .botao-voltar {
+            /* Fica no final do body (bottom part of space-between) */
+            margin-top: 10px; /* Garante que haja um espaço acima */
+            margin-bottom: 10px;
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            font-size: 14px; /* Fonte de volta ao tamanho normal */
+            border-radius: 5px;
+            text-align: center;
+        }
+        .botao-voltar:hover {
+            background-color: #0056b3;
+        }
+        .botao-voltar i {
+            margin-right: 5px;
+            font-size: 14px;
+        }
+
     </style>
 </head>
 <body>
+    
+    <div class="main-content">
+
+        <h1>EC DIVERSÕES</h1>
+        
+        <p class="chamada-principal">
+            **Pronto para a festa?** Alugue seu equipamento agora!
+        </p>
+
+        <img src="imagens/vendas.jpg" alt="Aluguel de Equipamentos e Manutenção de Máquinas de Karaokê" class="imagem-produto">
+
+        <p class="chamada-servico">
+            <i class="fas fa-tools" style="margin-right: 5px;"></i> **SERVIÇOS ESPECIALIZADOS:** Máquina de Karaokê precisa de um upgrade? Realizamos **manutenção e atualização** para que a música nunca pare.
+        </p>
+        
+        <p class="chamada-contato">
+            📞 **ORÇAMENTO RÁPIDO via WhatsApp!** Clique no ícone abaixo e fale conosco.
+        </p>
+        
+        <div class="botoes-container">
+            <a href="https://wa.me/5522996112625?text=Ol&aacute;! Tenho interesse em alugar seus produtos. Aguardo seu retorno. Obrigado(a)!" class="botao-circle circle-whatsapp" title="Orçamento Rápido via WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+            <a href="https://www.instagram.com/eclocacoes?igsh=anR3ZmxtMjk1c296/" class="botao-circle circle-instagram" title="Siga-nos no Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://www.facebook.com/AerDivercoes/" class="botao-circle circle-facebook" title="Curta nossa página no Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+        
+        <p class="chamada-contato" style="margin-top: 0;">
+            Siga-nos no **Instagram** e curta nossa página no **Facebook** para ver novidades e promoções!
+        </p>
+    </div>
+
     <a href="index.html" class="botao-voltar">
         <i class="fas fa-arrow-left"></i> Voltar para Página Principal
     </a>
-    
-    <h1>EC DIVERSÕES</h1>
-    
-    <p class="chamada-principal">
-        **Pronto para a festa?** Alugue seu equipamento agora!
-    </p>
-
-    <img src="imagens/vendas.jpg" alt="Aluguel de Equipamentos e Manutenção de Máquinas de Karaokê" class="imagem-produto">
-
-    <p class="chamada-servico">
-        <i class="fas fa-tools" style="margin-right: 3px; font-size: 12px;"></i> **SERVIÇOS ESPECIALIZADOS:** Máquina de Karaokê precisa de um upgrade? Realizamos **manutenção e atualização** para que a música nunca pare.
-    </p>
-    
-    <p class="chamada-contato">
-        📞 **ORÇAMENTO RÁPIDO via WhatsApp!** Clique no ícone abaixo e fale conosco.
-    </p>
-    
-    <div class="botoes-container">
-        <a href="https://wa.me/5522996112625?text=Ol&aacute;! Tenho interesse em alugar seus produtos. Aguardo seu retorno. Obrigado(a)!" class="botao-circle circle-whatsapp" title="Orçamento Rápido via WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-
-        <a href="https://www.instagram.com/eclocacoes?igsh=anR3ZmxtMjk1c296/" class="botao-circle circle-instagram" title="Siga-nos no Instagram">
-            <i class="fab fa-instagram"></i>
-        </a>
-
-        <a href="https://www.facebook.com/AerDivercoes/" class="botao-circle circle-facebook" title="Curta nossa página no Facebook">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-    </div>
-    
-    <p class="chamada-contato" style="margin-top: 0; font-size: 12px;">
-        Siga-nos no **Instagram** e curta nossa página no **Facebook** para ver novidades e promoções!
-    </p>
-
 
     <script>
         // Script para desabilitar a rolagem (mantido)

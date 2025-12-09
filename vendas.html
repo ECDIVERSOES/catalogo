@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8"> <!-- Certifique-se de que o charset é UTF-8 -->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alugue seu Equipamento</title>
-    <!-- Inclua o Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* Reset básico para garantir consistência */
@@ -20,6 +19,12 @@
             text-align: center;
             background-color: #f4f4f4;
             padding: 20px;
+            /* Garante que o conteúdo fique centrado verticalmente em dispositivos pequenos */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* Ocupa a altura total da tela */
         }
         h1 {
             margin-top: 20px;
@@ -31,67 +36,114 @@
             font-size: 16px;
             margin: 10px 0;
         }
+        
+        /* ------------------------------------------- */
+        /* FOCO NA IMAGEM E TEXTO */
+        /* ------------------------------------------- */
         .imagem-produto {
             margin: 20px auto;
-            max-width: 100%;
+            max-width: 95%; 
             height: auto;
             border-radius: 10px;
+            /* FOCO NA IMAGEM: Sombra e transição */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
         }
+        .imagem-produto:hover {
+            transform: scale(1.01); 
+        }
+        
+        .chamada-principal {
+            font-size: 22px;
+            color: #d9534f; 
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .chamada-servico {
+            font-size: 17px;
+            color: #5cb85c; 
+            font-weight: bold;
+            margin-top: 20px; 
+            margin-bottom: 10px;
+        }
+        
+        .chamada-contato {
+             font-size: 16px;
+             color: #333;
+             font-weight: 600;
+             margin-top: 10px;
+             margin-bottom: 20px;
+        }
+
+        /* ------------------------------------------- */
+        /* BOTÕES SOCIAIS */
+        /* ------------------------------------------- */
         .botoes-container {
             display: flex;
-            flex-direction: column; /* Botões em coluna para smartphones */
-            gap: 15px; /* Espaço entre os botões */
+            flex-direction: column; 
+            gap: 15px; 
             margin: 20px 0;
+            width: 95%; /* Garante que os botões ocupem quase toda a largura */
+            max-width: 400px; /* Limite para não ficarem muito largos em telas maiores */
         }
         .botao-destaque, .botao-instagram, .botao-facebook {
             display: flex;
             align-items: center;
-            justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+            justify-content: flex-start; 
             padding: 15px 30px;
             color: white;
             text-decoration: none;
             font-size: 18px;
             border-radius: 5px;
-            text-align: left; /* Alinha o texto à esquerda */
+            text-align: left; 
         }
         .botao-destaque {
-            background-color: #28a745; /* Verde para WhatsApp */
+            background-color: #28a745; 
         }
         .botao-destaque:hover {
             background-color: #218838;
         }
         .botao-instagram {
-            background-color: #E4405F; /* Rosa para Instagram */
+            background-color: #E4405F; 
         }
         .botao-instagram:hover {
             background-color: #D32A50;
         }
         .botao-facebook {
-            background-color: #1877F2; /* Azul para Facebook */
+            background-color: #1877F2; 
         }
         .botao-facebook:hover {
             background-color: #1466C2;
         }
+        
+        /* ------------------------------------------- */
+        /* BOTÃO VOLTAR OTIMIZADO PARA MOBILE VERTICAL */
+        /* ------------------------------------------- */
         .botao-voltar {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
+            /* Removendo a posição fixa */
+            position: static; 
+            margin: 30px auto 10px; /* Centraliza e adiciona margem */
+            display: inline-block; 
             padding: 10px 20px;
             background-color: #007bff;
             color: white;
             text-decoration: none;
             font-size: 14px;
             border-radius: 5px;
+            text-align: center;
         }
         .botao-voltar:hover {
             background-color: #0056b3;
         }
 
-        /* Ajustes para telas maiores (opcional) */
+        /* Ajustes para telas maiores */
         @media (min-width: 600px) {
             .botoes-container {
-                flex-direction: row; /* Botões lado a lado em telas maiores */
+                flex-direction: row; 
                 justify-content: center;
+                max-width: 800px;
             }
             .botao-destaque, .botao-instagram, .botao-facebook {
                 width: auto;
@@ -99,53 +151,55 @@
         }
 
         /* Estilo para os ícones */
-        .botao-destaque i, .botao-instagram i, .botao-facebook i {
-            margin-right: 15px; /* Espaço entre o ícone e o texto */
-            font-size: 24px; /* Tamanho maior dos ícones */
+        .botao-destaque i, .botao-instagram i, .botao-facebook i, .chamada-servico i, .botao-voltar i {
+            margin-right: 15px; 
+            font-size: 24px; 
         }
     </style>
 </head>
 <body>
-    <h1>Ec Diversões aluguel de brinquedos</h1>
-    <p>Alugue agora mesmo seu equipamento, faça um orçameto  atrav&eacute;s do WhatsApp, siga-nos no Instagram ou curta nossa p&aacute;gina no Facebook!</p>
+    <h1>EC DIVERSÕES</h1>
+    
+    <p class="chamada-principal">
+        **PRONTO PARA A FESTA?** Alugue seu equipamento agora!
+    </p>
 
-    <!-- Espaço para a imagem do produto -->
-    <img src="imagens/vendas.jpg" alt="Imagem do Produto" class="imagem-produto">
+    <img src="imagens/vendas.jpg" alt="Aluguel de Equipamentos e Manutenção de Máquinas de Karaokê" class="imagem-produto">
 
-    <!-- Container para os botões WhatsApp, Instagram e Facebook -->
+    <p class="chamada-servico">
+        <i class="fas fa-tools"></i> **SERVIÇOS ESPECIALIZADOS:** Sua máquina de Karaokê precisa de um upgrade? Realizamos **manutenção e atualização** para que a música nunca pare.
+    </p>
+    
+    <p class="chamada-contato">
+        📞 **ORÇAMENTO RÁPIDO VIA WHATSAPP!** Clique no botão abaixo e fale conosco sobre aluguel ou serviço.
+    </p>
+
     <div class="botoes-container">
-        <!-- Botão "Fale conosco no WhatsApp" -->
         <a href="https://wa.me/5522996112625?text=Ol&aacute;! Tenho interesse em alugar seus produtos. Aguardo seu retorno. Obrigado(a)!" class="botao-destaque">
-            <i class="fab fa-whatsapp"></i> <!-- Ícone do WhatsApp -->
+            <i class="fab fa-whatsapp"></i> 
             Fale conosco no WhatsApp
         </a>
 
-        <!-- Botão "Siga-nos no Instagram" -->
         <a href="https://www.instagram.com/eclocacoes?igsh=anR3ZmxtMjk1c296/" class="botao-instagram">
-            <i class="fab fa-instagram"></i> <!-- Ícone do Instagram -->
+            <i class="fab fa-instagram"></i> 
             Siga-nos no Instagram
         </a>
 
-        <!-- Botão "Curta nossa página no Facebook" -->
         <a href="https://www.facebook.com/AerDivercoes/" class="botao-facebook">
-            <i class="fab fa-facebook"></i> <!-- Ícone do Facebook -->
+            <i class="fab fa-facebook"></i> 
             Curta nossa página no Facebook
         </a>
     </div>
 
-    <!-- Botão "Voltar" -->
-    <a href="index.html" class="botao-voltar">Voltar para P&aacute;gina Principal</a>
+    <a href="index.html" class="botao-voltar">
+        <i class="fas fa-arrow-left"></i> Voltar para Página Principal
+    </a>
 
     <script>
-	<!-- Script para desabilitar a rolagem no celular -->
-	document.addEventListener('touchmove', function(event) {
-            event.preventDefault(); // Impede o comportamento padrão de rolagem
-        }, { passive: false }); // Define como não passivo para permitir a prevenção de padrão
-	
-	
-	
-	
-      
+        // Script para desabilitar a rolagem (mantido para manter a intenção do design "tela fixa")
+        document.addEventListener('touchmove', function(event) {
+            event.preventDefault();
+        }, { passive: false });
     </script>
 </body>
 </html>

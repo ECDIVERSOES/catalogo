@@ -17,28 +17,24 @@
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f4f4f4;
-            padding: 10px;
+            padding: 10px 10px 60px; /* Padding de 60px CRÍTICO para liberar espaço para o botão fixo */
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* IMPORTANTE: Removido justify-content: space-between para evitar ocultar o botão */
-            /* O conteúdo fluirá de cima para baixo */
             min-height: 100vh; 
         }
         
-        /* Container principal removido, pois o body já faz o layout principal */
-        
-        /* H1 - Fonte Aumentada */
+        /* H1 - Margem Mínima */
         h1 {
-            margin: 10px 0 10px; 
+            margin: 8px 0 5px; 
             color: #333;
             font-size: 24px; 
         }
         
-        /* Estilos de Texto - Fonte Aumentada */
+        /* Estilos de Texto - Margens Verticais Minimizadas */
         p {
-            margin: 5px 0; /* Margem aumentada */
-            line-height: 1.3;
+            margin: 3px 0; /* Reduzido para o mínimo */
+            line-height: 1.25;
             font-size: 16px; 
             color: #444;
             padding: 0 10px;
@@ -52,21 +48,21 @@
         .chamada-servico {
             color: #5cb85c; 
             font-weight: bold;
-            margin-top: 10px; 
+            margin-top: 8px; /* Espaçamento essencial */
         }
         
         .chamada-contato {
              font-weight: 600;
-             margin-top: 8px;
+             margin-top: 5px;
              margin-bottom: 5px;
         }
 
 
-        /* FOCO NA IMAGEM (Ajuste de altura para deixar espaço) */
+        /* FOCO NA IMAGEM - Altura Reduzida */
         .imagem-produto {
-            margin: 10px auto; 
+            margin: 8px auto; 
             max-width: 90%; 
-            max-height: 30vh; /* Ajustado para 30% da altura da tela */
+            max-height: 25vh; /* REDUÇÃO CRÍTICA para liberar espaço para o texto e botões */
             width: auto;
             height: auto;
             border-radius: 8px;
@@ -82,13 +78,13 @@
             flex-direction: row; 
             justify-content: center; 
             gap: 20px; 
-            margin: 15px 0 5px; /* Margem após os ícones reduzida */
+            margin: 10px 0 5px; /* Margem reduzida */
             width: 100%; 
         }
         
         .botao-circle {
-            width: 55px; 
-            height: 55px;
+            width: 50px; /* Tamanho reduzido para caber mais */
+            height: 50px;
             border-radius: 50%; 
             display: flex;
             align-items: center;
@@ -96,14 +92,10 @@
             color: white;
             text-decoration: none;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s;
-        }
-        .botao-circle:hover {
-            transform: scale(1.1);
         }
         
         .botao-circle i {
-            font-size: 24px; 
+            font-size: 22px; 
             margin: 0; 
         }
 
@@ -113,29 +105,30 @@
         .circle-facebook { background-color: #1877F2; }
 
         /* ------------------------------------------- */
-        /* BOTÃO VOLTAR (POSICIONADO APÓS TUDO) */
+        /* BOTÃO VOLTAR FIXO NO RODAPÉ (SOLUÇÃO FINAL) */
         /* ------------------------------------------- */
         .botao-voltar {
-            /* IMPORTANTE: margin-top: auto força o elemento para o final do container flexível */
-            margin-top: auto; 
-            margin-bottom: 10px;
-            display: inline-block;
-            padding: 8px 15px;
+            position: fixed; /* GARANTE VISIBILIDADE */
+            bottom: 0; /* Ancorado na parte inferior */
+            left: 0;
+            width: 100%; /* Ocupa a largura total */
+            padding: 15px 0;
             background-color: #007bff;
             color: white;
             text-decoration: none;
-            font-size: 14px; 
-            border-radius: 5px;
+            font-size: 16px; 
+            font-weight: bold;
             text-align: center;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+            z-index: 100;
         }
         .botao-voltar:hover {
             background-color: #0056b3;
         }
         .botao-voltar i {
-            margin-right: 5px;
-            font-size: 14px;
+            margin-right: 10px;
+            font-size: 16px;
         }
-
     </style>
 </head>
 <body>
@@ -170,7 +163,7 @@
         </a>
     </div>
     
-    <p class="chamada-contato" style="margin-top: 0; margin-bottom: 5px;">
+    <p class="chamada-contato" style="margin-top: 5px; margin-bottom: 5px;">
         Siga-nos no **Instagram** e curta nossa página no **Facebook** para ver novidades e promoções!
     </p>
 

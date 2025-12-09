@@ -3,200 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alugue seu Equipamento</title>
+    <title>EC Diversões - Aluguel e Serviços</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Reset básico para garantir consistência */
+        /* Reset e Base Compacta */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Estilos globais */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f4f4f4;
-            padding: 20px;
-            /* Garante que o conteúdo fique centrado verticalmente em dispositivos pequenos */
+            padding: 10px; /* Padding reduzido */
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            min-height: 100vh; /* Ocupa a altura total da tela */
+            justify-content: flex-start; /* Alinhar ao topo para caber na tela */
+            min-height: 100vh; 
         }
+        
+        /* H1 RETORNADO */
         h1 {
-            margin-top: 20px;
+            margin: 5px 0 5px; /* Margem ajustada */
             color: #333;
-            font-size: 24px;
+            font-size: 20px; 
         }
+        
+        /* Estilos de Texto Compacto (para caber as frases longas) */
         p {
-            color: #666;
-            font-size: 16px;
-            margin: 10px 0;
+            margin: 3px 0; /* Margem mínima entre os parágrafos */
+            line-height: 1.2;
+            font-size: 14px; /* Fonte reduzida para caber o texto longo */
+            color: #444;
+            padding: 0 5px;
         }
-        
-        /* ------------------------------------------- */
-        /* FOCO NA IMAGEM E TEXTO */
-        /* ------------------------------------------- */
-        .imagem-produto {
-            margin: 20px auto;
-            max-width: 95%; 
-            height: auto;
-            border-radius: 10px;
-            /* FOCO NA IMAGEM: Sombra e transição */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease-in-out;
-            cursor: pointer;
-        }
-        .imagem-produto:hover {
-            transform: scale(1.01); 
-        }
-        
+
         .chamada-principal {
-            font-size: 22px;
-            color: #d9534f; 
+            color: #d9534f; /* Destaque aluguel */
             font-weight: bold;
-            margin-bottom: 5px;
         }
 
         .chamada-servico {
-            font-size: 17px;
-            color: #5cb85c; 
+            color: #5cb85c; /* Destaque serviço */
             font-weight: bold;
-            margin-top: 20px; 
-            margin-bottom: 10px;
+            margin-top: 8px; /* Espaçamento após a imagem */
         }
         
         .chamada-contato {
-             font-size: 16px;
-             color: #333;
              font-weight: 600;
-             margin-top: 10px;
-             margin-bottom: 20px;
+             margin-top: 5px;
+             margin-bottom: 5px;
+        }
+
+
+        /* FOCO NA IMAGEM (Altíssimo grau de compactação) */
+        .imagem-produto {
+            margin: 8px auto; 
+            max-width: 90%; 
+            max-height: 25vh; /* CRÍTICO: Limita a imagem para cerca de 1/4 da tela */
+            width: auto;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
+            object-fit: contain; 
         }
 
         /* ------------------------------------------- */
-        /* BOTÕES SOCIAIS */
-        /* ------------------------------------------- */
-        .botoes-container {
-            display: flex;
-            flex-direction: column; 
-            gap: 15px; 
-            margin: 20px 0;
-            width: 95%; /* Garante que os botões ocupem quase toda a largura */
-            max-width: 400px; /* Limite para não ficarem muito largos em telas maiores */
-        }
-        .botao-destaque, .botao-instagram, .botao-facebook {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start; 
-            padding: 15px 30px;
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            border-radius: 5px;
-            text-align: left; 
-        }
-        .botao-destaque {
-            background-color: #28a745; 
-        }
-        .botao-destaque:hover {
-            background-color: #218838;
-        }
-        .botao-instagram {
-            background-color: #E4405F; 
-        }
-        .botao-instagram:hover {
-            background-color: #D32A50;
-        }
-        .botao-facebook {
-            background-color: #1877F2; 
-        }
-        .botao-facebook:hover {
-            background-color: #1466C2;
-        }
-        
-        /* ------------------------------------------- */
-        /* BOTÃO VOLTAR OTIMIZADO PARA MOBILE VERTICAL */
+        /* BOTÃO VOLTAR (NO TOPO) */
         /* ------------------------------------------- */
         .botao-voltar {
-            /* Removendo a posição fixa */
+            /* Adaptado para ficar acima do H1, no fluxo normal, mas compacto */
             position: static; 
-            margin: 30px auto 10px; /* Centraliza e adiciona margem */
-            display: inline-block; 
-            padding: 10px 20px;
+            margin: 0 auto 5px; 
+            display: inline-block;
+            padding: 5px 10px;
             background-color: #007bff;
             color: white;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 11px; /* Fonte mínima */
             border-radius: 5px;
             text-align: center;
         }
-        .botao-voltar:hover {
-            background-color: #0056b3;
+        .botao-voltar i {
+            margin-right: 5px;
+            font-size: 11px;
+        }
+        
+        /* ------------------------------------------- */
+        /* ÍCONES CIRCULARES (SOCIAL/WHATSAPP) */
+        /* ------------------------------------------- */
+        .botoes-container {
+            display: flex;
+            flex-direction: row; 
+            justify-content: center; /* Centralizar horizontalmente */
+            gap: 15px; /* Espaçamento entre os círculos */
+            margin: 10px 0; /* Margem mínima */
+            width: 100%; 
+        }
+        
+        .botao-circle {
+            width: 50px; /* Tamanho fixo do círculo */
+            height: 50px;
+            border-radius: 50%; /* Faz o círculo */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+        .botao-circle:hover {
+            transform: scale(1.1);
+        }
+        
+        .botao-circle i {
+            font-size: 22px; /* Tamanho do ícone */
+            margin: 0; /* Remover margem extra do ícone */
         }
 
-        /* Ajustes para telas maiores */
-        @media (min-width: 600px) {
-            .botoes-container {
-                flex-direction: row; 
-                justify-content: center;
-                max-width: 800px;
-            }
-            .botao-destaque, .botao-instagram, .botao-facebook {
-                width: auto;
-            }
-        }
+        /* Cores (mantidas) */
+        .circle-whatsapp { background-color: #28a745; }
+        .circle-instagram { background-color: #E4405F; }
+        .circle-facebook { background-color: #1877F2; }
 
-        /* Estilo para os ícones */
-        .botao-destaque i, .botao-instagram i, .botao-facebook i, .chamada-servico i, .botao-voltar i {
-            margin-right: 15px; 
-            font-size: 24px; 
-        }
     </style>
 </head>
 <body>
+    <a href="index.html" class="botao-voltar">
+        <i class="fas fa-arrow-left"></i> Voltar para Página Principal
+    </a>
+    
     <h1>EC DIVERSÕES</h1>
     
     <p class="chamada-principal">
-        **PRONTO PARA A FESTA?** Alugue seu equipamento agora!
+        **Pronto para a festa?** Alugue seu equipamento agora!
     </p>
 
     <img src="imagens/vendas.jpg" alt="Aluguel de Equipamentos e Manutenção de Máquinas de Karaokê" class="imagem-produto">
 
     <p class="chamada-servico">
-        <i class="fas fa-tools"></i> **SERVIÇOS ESPECIALIZADOS:** Sua máquina de Karaokê precisa de um upgrade? Realizamos **manutenção e atualização** para que a música nunca pare.
+        <i class="fas fa-tools" style="margin-right: 3px; font-size: 12px;"></i> **SERVIÇOS ESPECIALIZADOS:** Máquina de Karaokê precisa de um upgrade? Realizamos **manutenção e atualização** para que a música nunca pare.
     </p>
     
     <p class="chamada-contato">
-        📞 **ORÇAMENTO RÁPIDO VIA WHATSAPP!** Clique no botão abaixo e fale conosco sobre aluguel ou serviço.
+        📞 **ORÇAMENTO RÁPIDO via WhatsApp!** Clique no ícone abaixo e fale conosco.
     </p>
-
+    
     <div class="botoes-container">
-        <a href="https://wa.me/5522996112625?text=Ol&aacute;! Tenho interesse em alugar seus produtos. Aguardo seu retorno. Obrigado(a)!" class="botao-destaque">
-            <i class="fab fa-whatsapp"></i> 
-            Fale conosco no WhatsApp
+        <a href="https://wa.me/5522996112625?text=Ol&aacute;! Tenho interesse em alugar seus produtos. Aguardo seu retorno. Obrigado(a)!" class="botao-circle circle-whatsapp" title="Orçamento Rápido via WhatsApp">
+            <i class="fab fa-whatsapp"></i>
         </a>
 
-        <a href="https://www.instagram.com/eclocacoes?igsh=anR3ZmxtMjk1c296/" class="botao-instagram">
-            <i class="fab fa-instagram"></i> 
-            Siga-nos no Instagram
+        <a href="https://www.instagram.com/eclocacoes?igsh=anR3ZmxtMjk1c296/" class="botao-circle circle-instagram" title="Siga-nos no Instagram">
+            <i class="fab fa-instagram"></i>
         </a>
 
-        <a href="https://www.facebook.com/AerDivercoes/" class="botao-facebook">
-            <i class="fab fa-facebook"></i> 
-            Curta nossa página no Facebook
+        <a href="https://www.facebook.com/AerDivercoes/" class="botao-circle circle-facebook" title="Curta nossa página no Facebook">
+            <i class="fab fa-facebook-f"></i>
         </a>
     </div>
+    
+    <p class="chamada-contato" style="margin-top: 0; font-size: 12px;">
+        Siga-nos no **Instagram** e curta nossa página no **Facebook** para ver novidades e promoções!
+    </p>
 
-    <a href="index.html" class="botao-voltar">
-        <i class="fas fa-arrow-left"></i> Voltar para Página Principal
-    </a>
 
     <script>
-        // Script para desabilitar a rolagem (mantido para manter a intenção do design "tela fixa")
+        // Script para desabilitar a rolagem (mantido)
         document.addEventListener('touchmove', function(event) {
             event.preventDefault();
         }, { passive: false });

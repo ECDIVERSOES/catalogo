@@ -7,8 +7,8 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #000000;
-    color: #E0E0E0;
+    background-color: #1e1e2e;
+    color: #f0f0f0;
     overflow-x: hidden;
 }
 
@@ -18,7 +18,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #1a1a2e;
+    background-color: #2a2a3a;
     z-index: 1500;
     padding: 0px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
@@ -38,8 +38,6 @@ body {
     padding: 10px;
 }
 
-
-
 h1 {
     color: #FFFFFF;
     font-size: 1.3rem;
@@ -50,10 +48,8 @@ h1 {
     margin-top: 0px;
     margin-bottom: 5px;
     font-size: 12px;
-    color: #CCCCCC;
+    color: #dddddd;
 }
-
-
 
 /* ======================================== */
 /* CONTROLE DO FUNDO (IMAGEM)               */
@@ -63,34 +59,34 @@ h1 {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #1a1a2e;
+    background-color: #2a2a3a;
     background-image: url('imagens/karaoke.png');
-    background-size: 50% auto;     /* ← CONTROLE: tamanho da imagem */
-    background-position: center;    /* ← CONTROLE: posição (center, top, bottom) */
+    background-size: 50% auto;
+    background-position: center;
     background-repeat: no-repeat;
     background-blend-mode: hard-light;
     z-index: 1000;
     padding: 0px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     text-align: center;
-    height: 115px;                  /* ← CONTROLE: altura do fundo */
+    height: 115px;
 }
 
 /* ======================================== */
 /* CONTROLE DA CAIXA DE PESQUISA            */
 /* ======================================== */
 #pesquisa {
-    position: fixed;                 /* Livre flutuante */
-    top: 70px;                     /* ← POSIÇÃO VERTICAL (desce/sobe) */
-    left: 50%;                      /* Centralizado */
+    position: fixed;
+    top: 70px;
+    left: 50%;
     transform: translateX(-50%);
     width: 90%;
     max-width: 270px;
     padding: 10px;
     font-size: 14px;
-    border: 2px solid #FFD700;
+    border: 2px solid #ffb347;
     border-radius: 10px;
-    background-color: #1a1a2e;
+    background-color: #2a2a3a;
     color: #FFFFFF;
     margin: 0;
     transition: all 0.3s ease;
@@ -104,17 +100,16 @@ h1 {
 /* ======================================== */
 @media (max-width: 768px) {
     .cabecalho-fixo {
-        background-position: center 0px !important;  /* Sobe 10px */
+        background-position: center 0px !important;
         background-size: 80% auto !important;
         height: 120px !important;
     }
 }
 
-
 /* Estilo para o resultado da pesquisa */
 .resultado-pesquisa {
     font-size: 16px;
-    color: #CCCCCC;
+    color: #cccccc;
     margin-top: 5px;
     text-align: center;
     display: none;
@@ -139,7 +134,7 @@ h1 {
 }
 
 .conteudo-rolavel::-webkit-scrollbar-thumb {
-    background-color: #1a1a2e;
+    background-color: #3a3a4a;
     border-radius: 10px;
 }
 
@@ -153,7 +148,6 @@ h1 {
     margin: 0;
 }
 
-/* Lista   /*  separação das musicas  */
 .lista-simples-favoritos {
     display: flex;
     flex-direction: column;
@@ -167,49 +161,59 @@ h1 {
 .item-lista {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Alinha o conteúdo verticalmente */
-    padding: 1px;
-    background-color: #1a1a1a;
+    justify-content: flex-start;
+    padding: 12px;          /* aumentei o padding interno para dar mais respiro */
+    background-color: #2c2c3a;
     border-radius: 10px;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     cursor: pointer;
     min-height: 50px;
     overflow: hidden;
     text-overflow: ellipsis;
-    text-align: left; /* Alinha o conteúdo à esquerda */
+    text-align: left;
 }
 
 /* Alinhamento dos números, cantores e músicas à esquerda */
 .numero, .cantor, .musica, .genero {
-    display: block; /* Garante que ocupem o espaço da linha */
-    text-align: left; /* Alinha o texto à esquerda */
-    margin: 1px 0; /* Espaçamento entre as linhas */
+    display: block;
+    text-align: left;
+    margin: 2px 0;
 }
 
+/* NÚMERO DA CANÇÃO: BRANCO, MAIOR, COM MOLDURA E DESTAQUE */
 .numero {
-    color: #FFD700;
+    color: #ffffff;
     font-weight: bold;
-    font-size: 1.1rem;
-    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+    font-size: 1.8rem;       /* um pouco maior que antes */
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    
+    /* MOLDURA PARA DESTAQUE */
+    display: inline-block;    /* para a borda envolver apenas o número */
+    background: rgba(0, 0, 0, 0.4);   /* fundo semi-transparente escuro */
+    border: 2px solid #ffb347;        /* borda dourada suave */
+    border-radius: 20px;              /* cantos arredondados */
+    padding: 4px 14px;                /* espaço interno da moldura */
+    margin-bottom: 8px;               /* espaço extra abaixo do número (afasta cantor/música) */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
 .cantor {
-    color: #4dabf7;
+    color: #7bc5ff;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    margin-top: 4px;        /* pequeno espaçamento extra vindo do número */
 }
 
 .musica {
-    color: #E0E0E0;
-    font-size: 1rem;
-    text-align: left; /* Garante que a música fique alinhada à esquerda */
+    color: #f0f0f0;
+    font-size: 1.2rem;
+    text-align: left;
 }
 
 .genero {
-    color: #999;
+    color: #bbbbbb;
     font-size: 0.9rem;
     font-style: italic;
-   /* margin-top: 6px; */
 }
 
 /* Controles de Paginação Fixos */
@@ -222,16 +226,16 @@ h1 {
     justify-content: center;
     gap: 10px;
     padding: 10px;
-    background-color: #0a0a0a;
+    background-color: #1a1a2a;
     box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.5);
     z-index: 999;
 }
 
 .controles-paginacao button {
     padding: 10px 20px;
-    border: 2px solid #FF0000;
+    border: 2px solid #cc3300;
     border-radius: 25px;
-    background-color: #FF0000;
+    background-color: #cc3300;
     color: #FFFFFF;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -240,14 +244,13 @@ h1 {
 }
 
 .controles-paginacao button:disabled {
-    border-color: #660000;
-    color: #660000;
+    border-color: #662200;
+    color: #aa8866;
     cursor: not-allowed;
 }
 
 .controles-paginacao button:hover:not(:disabled) {
-    background-color: #D70000;
-    color: white;
+    background-color: #aa2200;
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
@@ -268,7 +271,13 @@ h1 {
     }
 
     .item-lista {
-        padding: 10px;
+        padding: 8px;
+    }
+
+    .numero {
+        font-size: 1.4rem;
+        padding: 2px 10px;
+        margin-bottom: 6px;
     }
 
     .controles-paginacao {
@@ -292,20 +301,19 @@ h1 {
     justify-content: center;
     gap: 10px;
     padding: 10px;
-    background-color: #0a0a0a;
+    background-color: #1a1a2a;
     box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.5);
     z-index: 999;
-    align-items: center; /* Alinha os elementos centralizados */
+    align-items: center;
 }
 
-/* Botão de Ajuda */
 .help-button {
-    position: fixed; /* Mantém o botão fixo na tela */
-    right: 1px; /* Distância da borda esquerda */
-    bottom: 10px; /* Distância da parte inferior */
+    position: fixed;
+    right: 1px;
+    bottom: 10px;
     width: 35px;
     height: 35px;
-    background-color: #FFD700;
+    background-color: #ffc107;
     border: 2px solid #333;
     border-radius: 50%;
     color: black;
@@ -321,18 +329,17 @@ h1 {
 }
 
 .help-button:hover {
-    background-color: #FFC107;
+    background-color: #e0a800;
     transform: scale(1.1);
 }
 
-/* Botão de Vendas Fixo */
 .vendas-button {
     position: fixed;
     right: 50px;
     bottom: 10px;
     width: 35px;
     height: 35px;
-    background-color: #FFD700;
+    background-color: #ffc107;
     border: 2px solid #333;
     border-radius: 50%;
     color: black;
@@ -348,7 +355,7 @@ h1 {
 }
 
 .vendas-button:hover {
-    background-color: #FFC107;
+    background-color: #e0a800;
     transform: scale(1.1);
 }
 
@@ -356,13 +363,12 @@ h1 {
     font-size: 24px;
 }
 
-/* Botão de Voltar */
 .back-button {
     position: fixed;
     bottom: 10px;
     left: 10px;
     padding: 10px 20px;
-    background-color: #1a1a2e;
+    background-color: #2a2a3a;
     color: white;
     border-radius: 25px;
     text-decoration: none;
@@ -371,10 +377,9 @@ h1 {
 }
 
 .back-button:hover {
-    background-color: #2a2a4e;
+    background-color: #3a3a4e;
 }
 
-/* Botão de Favorito das músicas pagina favoritos */
 .favorito-btn {
     background: none;
     border: none;
@@ -387,7 +392,7 @@ h1 {
 
 .favorito-btn:hover {
     transform: scale(1.1);
-}  
+}
 
 .favoritos-link {
     position: absolute;
@@ -429,7 +434,7 @@ h1 {
 #mensagem-favoritos {
     text-align: center;
     font-size: 25px;
-    color: #ff6666;
+    color: #ff8888;
     margin-top: 20px;
     font-weight: bold;
     position: absolute;
@@ -468,19 +473,16 @@ h1 {
     transform: scale(1.1);
 }
 
-/* Estilo para o coração ativo (favoritado) */
 .coracao.favorito-ativo {
-    color: #FF4500;
+    color: #ff6347;
     font-size: 1.5rem;
 }
 
-/* Estilo para o coração inativo (não favoritado) */
 .coracao.favorito-inativo {
-    color: #555;
+    color: #888;
     font-size: 1.5rem;
 }
 
-/* Botão de Favorito das músicas pagina index */
 .botoes-item {
     margin-left: auto;
     display: flex;
@@ -493,24 +495,23 @@ h1 {
     font-size: 1.2em;
 }
 
-/* Rodapé */
 .rodape {
     position: fixed;
     bottom: 60px;
     left: 0;
     right: 0;
-    background: linear-gradient(135deg, #0d1b2a 0%, #1b2a3a 100%);
+    background: linear-gradient(135deg, #1e2a3a 0%, #2a3a4a 100%);
     padding: 10px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 998;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.4);
-    border-top: 2px solid #ffd700;
+    border-top: 2px solid #ffb347;
 }
 
 .rodape-mensagem span {
-    color: #E0E0E0;
+    color: #f0f0f0;
     font-size: 12px;
     font-weight: 500;
 }
@@ -540,7 +541,6 @@ h1 {
     transform: scale(1.05);
 }
 
-/* Ajuste para telas pequenas */
 @media (max-width: 480px) {
     .rodape {
         bottom: 55px;
@@ -564,8 +564,6 @@ h1 {
 /* ======================================== */
 /* ESTILOS PARA O BOTÃO INFANTIL (FILTRO)   */
 /* ======================================== */
-
-/* Botão Infantil na barra de filtros */
 .btn-filtro.infantil {
     background-color: #2a2a3a;
     border: 1px solid #00CED1;
@@ -587,14 +585,11 @@ h1 {
 /* ======================================== */
 /* ESTILOS PARA MÚSICA INFANTIL NA LISTAGEM */
 /* ======================================== */
-
-/* Destaque visual para músicas infantis (opcional) */
 .item-lista[data-genero="infantil"] {
     border-left: 4px solid #00CED1;
-    background: linear-gradient(90deg, #1a1a1a 0%, #1a1a2a 100%);
+    background: linear-gradient(90deg, #2c2c3a 0%, #2a2a3a 100%);
 }
 
-/* Badge do gênero específico para infantil no item da lista */
 .genero-infantil {
     color: #00CED1;
     font-weight: bold;
